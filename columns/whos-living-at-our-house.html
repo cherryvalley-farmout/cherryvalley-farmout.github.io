@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who's Living At Our House — Farm Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3ead6;
+    --paper-deep:#ece0c6;
+    --ink:#23190f;
+    --ink-soft:#4a3c2a;
+    --rust:#8c3b1b;
+    --rust-soft:#b5683f;
+    --rule:#2a2014;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{ -webkit-font-smoothing:antialiased; }
+
+  body{
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(140,59,27,.07), transparent 60%),
+      radial-gradient(ellipse 120% 80% at 50% 120%, rgba(35,25,15,.10), transparent 55%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"Newsreader", Georgia, serif;
+    font-optical-sizing:auto;
+    line-height:1.62;
+    min-height:100vh;
+    padding:clamp(1.2rem,4vw,4rem) clamp(1rem,4vw,2rem) 5rem;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* paper grain */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:50;
+    opacity:.42;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  /* soft vignette so the page feels like a sheet */
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:49;
+    box-shadow:inset 0 0 220px rgba(35,25,15,.18);
+  }
+
+  .sheet{
+    max-width:46rem;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+  }
+
+  /* ---- Masthead ---- */
+  .kicker{
+    text-align:center;
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    font-style:italic;
+    letter-spacing:.02em;
+    color:var(--rust);
+    font-size:clamp(1rem,3.4vw,1.35rem);
+    text-transform:uppercase;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1.1rem;
+    opacity:0; animation:rise .9s .05s both;
+  }
+  .kicker::before,.kicker::after{
+    content:"";
+    height:1px;
+    flex:1;
+    max-width:5.5rem;
+    background:linear-gradient(90deg,transparent,var(--rust-soft));
+  }
+  .kicker::after{background:linear-gradient(90deg,var(--rust-soft),transparent);}
+
+  h1{
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    font-size:clamp(2.5rem,9vw,5rem);
+    line-height:.96;
+    text-align:center;
+    letter-spacing:-.018em;
+    margin:.5rem 0 .2rem;
+    color:var(--ink);
+    text-shadow:0 1px 0 rgba(243,234,214,.6);
+    opacity:0; animation:rise 1s .15s both;
+  }
+
+  .byline{
+    text-align:center;
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-weight:600;
+    color:var(--ink-soft);
+    font-size:clamp(.95rem,2.6vw,1.1rem);
+    letter-spacing:.01em;
+    margin-top:.35rem;
+    opacity:0; animation:rise 1s .28s both;
+  }
+  .byline span{ color:var(--rust); }
+
+  .toprule{
+    display:flex; align-items:center; justify-content:center;
+    gap:.9rem;
+    margin:2rem auto 2.4rem;
+    opacity:0; animation:rise 1s .4s both;
+  }
+  .toprule .line{ height:2px; width:min(40%,11rem); background:var(--rule); }
+  .toprule .dot{ color:var(--rust); font-size:1.1rem; transform:translateY(-1px); }
+
+  /* ---- Body copy ---- */
+  article{
+    opacity:0; animation:rise 1.1s .5s both;
+  }
+  article p{
+    font-size:clamp(1.06rem,2.5vw,1.22rem);
+    margin-bottom:1.35rem;
+    text-align:justify;
+    hyphens:auto;
+    color:var(--ink);
+  }
+  article p:last-child{ margin-bottom:0; }
+
+  /* drop cap */
+  article > p:first-of-type::first-letter{
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    float:left;
+    font-size:4.7rem;
+    line-height:.78;
+    padding:.32rem .55rem .1rem 0;
+    margin-top:.16rem;
+    color:var(--rust);
+  }
+  /* small caps lead-in on opening words */
+  article > p:first-of-type{ }
+  .lead-sc{
+    font-variant:small-caps;
+    letter-spacing:.04em;
+    font-weight:500;
+  }
+
+  /* names get a subtle warmth */
+  .nm{ font-style:italic; color:var(--ink-soft); }
+
+  .closer{
+    margin-top:2.6rem;
+    text-align:center;
+    font-family:"Fraunces", serif;
+    color:var(--rust);
+    font-size:1.4rem;
+    opacity:0; animation:rise 1.1s .7s both;
+  }
+
+  @keyframes rise{
+    from{opacity:0; transform:translateY(14px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  @media (max-width:480px){
+    article p{ text-align:left; }
+    article > p:first-of-type::first-letter{ font-size:3.8rem; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;}
+    .kicker,h1,.byline,.toprule,article,.closer{opacity:1!important;}
+  }
+</style>
+</head>
+<body>
+  <main class="sheet">
+    <div class="kicker">Farm Out</div>
+    <h1>Who&rsquo;s Living<br>At Our House</h1>
+    <p class="byline">by <span>Melissa Horvath</span> &amp; <span>Doris Lange</span></p>
+
+    <div class="toprule">
+      <span class="line"></span><span class="dot">&#10086;</span><span class="line"></span>
+    </div>
+
+    <article>
+      <p><span class="lead-sc">People are always asking us</span> Horvaths, &ldquo;Who&rsquo;s living at your house now?&rdquo; Since we moved to the farm, we&rsquo;ve had many semi-permanent guests to enrich our lives in addition to the more permanent seven of us. Some of these friends have lived &ldquo;en famille&rdquo; and some have lived in one of the out-buildings (specifically that &ldquo;chicken-coop,&rdquo; or more precisely, ex-chicken-coop. The chickens have another out-building, but we still call the &ldquo;People Coop,&rdquo; the chicken coop, just to make things thoroughly complicated.)</p>
+
+      <p>This guest list is almost never planned in advance; it just occurs and has always worked out beneficially for all. <span class="nm">Paul</span>, the first teacher at our alternative school, was our first guest. At first he stayed in the house, then he converted part of the chicken coop into a rustic apartment. Instead of chicken plucking, the chicken coop rang to the plucking of guitar and banjo. We turned the other two-thirds of the building into our school. (&ldquo;We&rdquo; meaning a dozen or more friends, whom we&rsquo;ve mentioned before.) &hellip; So our next semi-permanent guests were our school kids.</p>
+
+      <p>The school population varied from year to year but each of the children was a distinctive personality, who added diversity and adventure to our lives and our landscape. For example, we have a lot which never got finished because the plans kept changing; we have a sun dial made with a telephone pole as the style, and with old hay poles pounded into a circle in the yard denoting the hours; we have memories of chocolate chip cookies made with one-half cup of baking soda instead of one-half teaspoon, smelling delicious and tasting &hellip; YUK! In fact there may even be one or two of those cookies around the farm still &mdash; even the chickens wouldn&rsquo;t eat them.</p>
+
+      <p><span class="nm">Julie</span> and her two children lived here for part of a summer. During this time, Julie, an artist of genius, illustrated a book of poems by my father, who was living with us also. Charlie printed up the book and it became a joyful souvenir for many of us who worked on that year&rsquo;s Cherry Valley Art Day.</p>
+
+      <p><span class="nm">Mary Lou</span> and her son Jeffrey were here during the berry-picking season. Warm memories of those times include the sweet smells of good baking and jelly-making.</p>
+
+      <p><span class="nm">Janey</span> and her son Tommy were here during a sugaring season. This was when we learned that wood splits better if the axe-wielder shouts as the axe hits the log. We roared together splitting wood that March, and got the earliest sun-tans ever while we boiled the sap outdoors.</p>
+
+      <p><span class="nm">Ann</span>, who came from England, lived with us the next summer. Because Melissa was working that summer (but that&rsquo;s another story), Ann became absorbed in the gardening chores which Melissa had less time for. Ann had lived all her young life in London, and this was her first experience with &ldquo;down to earth&rdquo; vegetable gardening. Ann was delighted to be able to choose and pick the &ldquo;vegetables&rdquo; for each meal, and we were all delighted to have these gourmet quality meals ready for us after a hard day&rsquo;s work.</p>
+
+      <p>Paul has since built his very own log cabin and the school has been closed this year, so the chicken coop has new residents. <span class="nm">Bob Milner</span> lives in Paul&rsquo;s old apartment &mdash; insulation partly covered by barn board, partly covered by insulation, partly covered by &hellip; Bob is a member of &ldquo;East Hill,&rdquo; a band which plays often at local inns and at some &ldquo;outs.&rdquo; (Specifically, the band plays at &ldquo;Farm Outs,&rdquo; it&rsquo;s good to hear music in residence again.)</p>
+
+      <p><span class="nm">Hans and Laura</span> have recently taken up residence in the former school-house side of the chicken coop, and are now our &ldquo;artists in residence.&rdquo; Hans is doing a family portrait of us; plays a mean game of monopoly, is always ready to lend a hand, and his English (lived three years out of Germany) is much better than our German.</p>
+
+      <p><span class="nm">Laura</span>, not to be confused with &ldquo;our&rdquo; Laura, is helping Debby learn her French, helping enrich our lives in her special way, and is doing a portrait of &ldquo;our&rdquo; Laura.</p>
+
+      <p>The &ldquo;Farm Out&rdquo; population keeps changing, so friends have good reason to ask &ldquo;Who&rsquo;s living at your house now?&rdquo; Answer: &ldquo;We&rsquo;re all living, in the fullest sense of the word, at our house now.&rdquo; As each new resident has enriched our lives in a unique way, we anticipate future guests and, hope, there&rsquo;ll always be somebody living at our house now.</p>
+    </article>
+
+    <div class="closer">&#10086;</div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,1 @@
+this project is only about reproducing text of the farm out columns from jpegs and other sources. always review text and do your best. only focus on text in the "farm out" column by horvath & lange. 

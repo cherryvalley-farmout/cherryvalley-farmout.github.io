@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farm Out — August 20, 1974</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3ead6;
+    --paper-deep:#ece0c6;
+    --ink:#23190f;
+    --ink-soft:#4a3c2a;
+    --rust:#8c3b1b;
+    --rust-soft:#b5683f;
+    --rule:#2a2014;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{ -webkit-font-smoothing:antialiased; }
+
+  body{
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(140,59,27,.07), transparent 60%),
+      radial-gradient(ellipse 120% 80% at 50% 120%, rgba(35,25,15,.10), transparent 55%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"Newsreader", Georgia, serif;
+    font-optical-sizing:auto;
+    line-height:1.62;
+    min-height:100vh;
+    padding:clamp(1.2rem,4vw,4rem) clamp(1rem,4vw,2rem) 5rem;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:50;
+    opacity:.42;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:49;
+    box-shadow:inset 0 0 220px rgba(35,25,15,.18);
+  }
+
+  .sheet{
+    max-width:46rem;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+  }
+
+  .kicker{
+    text-align:center;
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    font-style:italic;
+    letter-spacing:.02em;
+    color:var(--rust);
+    font-size:clamp(1rem,3.4vw,1.35rem);
+    text-transform:uppercase;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+    opacity:0;
+    animation:rise .8s .05s both;
+  }
+  .kicker::before,.kicker::after{
+    content:"";
+    flex:1;
+    max-width:5rem;
+    height:1px;
+    background:var(--rule);
+  }
+
+  h1{
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    font-size:clamp(2.4rem,8vw,4.4rem);
+    line-height:.95;
+    letter-spacing:-.02em;
+    text-align:center;
+    margin:.5rem 0 .6rem;
+    color:var(--ink);
+    opacity:0;
+    animation:rise .9s .15s both;
+  }
+
+  .byline{
+    text-align:center;
+    font-style:italic;
+    font-size:clamp(.95rem,2.4vw,1.08rem);
+    color:var(--ink-soft);
+    margin-bottom:.3rem;
+    opacity:0;
+    animation:rise .9s .25s both;
+  }
+  .byline span{ font-style:normal; font-weight:500; }
+
+  .dateline{
+    text-align:center;
+    font-family:"Fraunces", serif;
+    font-size:.82rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--rust-soft);
+    margin-bottom:2rem;
+    opacity:0;
+    animation:rise .9s .3s both;
+  }
+
+  .toprule{
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+    margin-bottom:2.2rem;
+    opacity:0;
+    animation:rise .9s .35s both;
+  }
+  .toprule .line{ flex:1; height:1px; background:var(--rule); }
+  .toprule .dot{ color:var(--rust); font-size:1rem; }
+
+  article{
+    opacity:0;
+    animation:rise 1s .42s both;
+  }
+
+  article p{
+    font-size:clamp(1rem,2.4vw,1.1rem);
+    line-height:1.72;
+    margin-bottom:1.3em;
+    text-align:justify;
+    hyphens:auto;
+  }
+
+  article > p:first-of-type::first-letter{
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    font-size:clamp(4rem,10vw,5.2rem);
+    line-height:.82;
+    float:left;
+    margin:.08em .14em 0 0;
+    color:var(--rust);
+  }
+
+  .lead-sc{
+    font-variant:small-caps;
+    font-size:1.05em;
+    letter-spacing:.04em;
+  }
+
+  .section-rule{
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+    margin:2rem 0;
+  }
+  .section-rule .line{ flex:1; height:1px; background:rgba(42,32,20,.3); }
+  .section-rule .dot{ color:var(--rust-soft); font-size:.9rem; }
+
+  h2.section-head{
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    font-size:clamp(1.3rem,4vw,1.8rem);
+    color:var(--ink);
+    margin-bottom:1rem;
+    letter-spacing:-.01em;
+  }
+
+  .letter-block{
+    border-left:3px solid var(--rust);
+    padding:.9rem 1.2rem .9rem 1.4rem;
+    margin:1.6rem 0;
+    background:rgba(140,59,27,.04);
+  }
+  .letter-block p{
+    font-size:clamp(.95rem,2.2vw,1.05rem);
+    line-height:1.68;
+    margin-bottom:.9em;
+    text-align:left;
+  }
+  .letter-block p:last-child{ margin-bottom:0; }
+  .letter-salutation{ font-style:italic; }
+  .letter-sign{ font-style:italic; margin-top:.4rem; }
+
+  .closer{
+    text-align:center;
+    margin-top:3rem;
+    color:var(--rust);
+    font-size:1.3rem;
+    opacity:0;
+    animation:rise .9s .6s both;
+  }
+
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    font-family:"Fraunces", serif;
+    font-size:.82rem;
+    font-weight:700;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    margin-bottom:2.2rem;
+    opacity:0;
+    animation:rise .8s 0s both;
+  }
+  .back-link::before{ content:"←"; }
+  .back-link:hover{ text-decoration:underline; }
+
+  @keyframes rise{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  @media (max-width:480px){
+    article p{ text-align:left; }
+    article > p:first-of-type::first-letter{ font-size:3.8rem; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;}
+    .back-link,.kicker,h1,.byline,.dateline,.toprule,article,.closer{opacity:1!important;}
+  }
+</style>
+</head>
+<body>
+  <main class="sheet">
+    <a class="back-link" href="../index.html">All Columns</a>
+
+    <div class="kicker">Farm Out</div>
+    <h1>Chickens in the Trees</h1>
+    <p class="byline">by <span>Melissa Horvath</span> &amp; <span>Doris Lange</span></p>
+    <p class="dateline">August 20, 1974 &mdash; The Freeman&rsquo;s Journal</p>
+
+    <div class="toprule">
+      <span class="line"></span><span class="dot">&#10086;</span><span class="line"></span>
+    </div>
+
+    <article>
+      <p><span class="lead-sc">Last week,</span> two friends came to our house toting burlap bags over their shoulders. When the bags were opened, out poured 16 partly-grown White Leghorns &mdash; peeping out very much like birds very different from the King&rsquo;s 4 and 20 blackbirds. Fifteen were chickens, almost ready to lay eggs, a serpentine good addition to our flock of six. The additional chickens settled in well, rummaging for bugs in the garden and pecking in the compost heap.</p>
+
+      <p>However, when evening came they could not be driven or shepherded into the chicken coop &mdash; they flapped and fluttered themselves up into our trees, four feet up. The friends who donated the new chickens had a chicken-killing dog, and our 15 chickens had learned the survival of the smartest: they roosted up out of harm&rsquo;s way. It is a strange sight to see these chickens far up in the trees, partly concealed by leaves, glowing pinkly in the rays of the setting sun. We worry about what is going to happen when they start laying eggs. We may be having many scrambled eggs and/or egg shampoos.</p>
+
+      <div class="section-rule">
+        <span class="line"></span><span class="dot">&#10086;</span><span class="line"></span>
+      </div>
+
+      <h2 class="section-head">On Celebration</h2>
+
+      <p>Some sociologists and philosophers in recent years have lamented the passing of Festivals in this particular era of our civilization. It seems, they say, that our &ldquo;western culture&rdquo; has lost its sense of celebration &mdash; our organized holidays have become so commercialized that it has become unattractive, or worse, not to spend a lot of money to make each other &ldquo;Merry&rdquo; at Christmas and &ldquo;Happy&rdquo; at December 31st.</p>
+
+      <p>But we celebrate everything at Farm Out. The birth of a calf, everyone&rsquo;s birthday, the end of &ldquo;first cutting,&rdquo; the end of corn picking, the garden harvest &mdash; the beginning of anything. We celebrate. Farming keeps us more closely attuned to the seasons, and every season has some reason to celebrate.</p>
+
+      <p>We had our &ldquo;Beast Feast&rdquo; early this year because Dan will have to leave for his home in California soon, and it seemed a shame not to share this festival with him. This was our third Beast Feast &mdash; the first was a whole pig, this year it was a whole steer. Folks gather from miles around, old friends and new; everyone brings something to share, and we share anecdotes with interesting people of many ages and stages of life.</p>
+
+      <p>We wish we could have invited all of you to the Beast Feast, because, as you may have realized, we want everyone to appreciate and enjoy both the extraordinary and the ordinary good things of life. All of us have just &ldquo;so much&rdquo; time for this life; we can suffer through it, or we can celebrate. Life brings all of us enough pain &mdash; we try to bring joy to life with our festivals, celebrations, and with love.</p>
+
+      <div class="section-rule">
+        <span class="line"></span><span class="dot">&#10086;</span><span class="line"></span>
+      </div>
+
+      <h2 class="section-head">A Letter from a Farm Out Kid</h2>
+
+      <p>One of our Farm Out kids mailed the following letter this week:</p>
+
+      <div class="letter-block">
+        <p class="letter-salutation">Dear Mr. Aaron,</p>
+        <p>I went to the Hall of Fame game today. Your team didn&rsquo;t play as good as those on T.V.</p>
+        <p>I play little league ball, and every game I play as hard as I can. The only chance I get to see you play is in Cooperstown. We have a dairy farm.</p>
+        <p>I hoped to see you and your teammates play the game as good as on T.V. I was very sad, and I&rsquo;m glad I didn&rsquo;t pay to see the game. I jumped the fence.</p>
+        <p>My father helped me a little with this letter. He told me that if I felt this way, I should write this letter. I typed this letter myself.</p>
+        <p class="letter-sign">Sincerely yours,<br>Erik Lange</p>
+      </div>
+
+      <p>What about it, baseball fans? Are we getting second-class baseball at the Hall of Fame just because it&rsquo;s an off-the-record contest?</p>
+    </article>
+
+    <div class="closer">&#10086;</div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farm Out — May 21, 1974</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#f3ead6;--paper-deep:#ece0c6;--ink:#23190f;--ink-soft:#4a3c2a;--rust:#8c3b1b;--rust-soft:#b5683f;--rule:#2a2014;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(140,59,27,.07),transparent 60%),radial-gradient(ellipse 120% 80% at 50% 120%,rgba(35,25,15,.10),transparent 55%),var(--paper);color:var(--ink);font-family:"Newsreader",Georgia,serif;font-optical-sizing:auto;line-height:1.62;min-height:100vh;padding:clamp(1.2rem,4vw,4rem) clamp(1rem,4vw,2rem) 5rem;position:relative;overflow-x:hidden;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.42;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:49;box-shadow:inset 0 0 220px rgba(35,25,15,.18);}
+  .sheet{max-width:46rem;margin:0 auto;position:relative;z-index:1;}
+  .kicker{text-align:center;font-family:"Fraunces",serif;font-weight:900;font-style:italic;letter-spacing:.02em;color:var(--rust);font-size:clamp(1rem,3.4vw,1.35rem);text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:1rem;opacity:0;animation:rise .8s .05s both;}
+  .kicker::before,.kicker::after{content:"";flex:1;max-width:5rem;height:1px;background:var(--rule);}
+  h1{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2.4rem,8vw,4.4rem);line-height:.95;letter-spacing:-.02em;text-align:center;margin:.5rem 0 .6rem;color:var(--ink);opacity:0;animation:rise .9s .15s both;}
+  .byline{text-align:center;font-style:italic;font-size:clamp(.95rem,2.4vw,1.08rem);color:var(--ink-soft);margin-bottom:.3rem;opacity:0;animation:rise .9s .25s both;}
+  .byline span{font-style:normal;font-weight:500;}
+  .dateline{text-align:center;font-family:"Fraunces",serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rust-soft);margin-bottom:2rem;opacity:0;animation:rise .9s .3s both;}
+  .toprule{display:flex;align-items:center;gap:.8rem;margin-bottom:2.2rem;opacity:0;animation:rise .9s .35s both;}
+  .toprule .line{flex:1;height:1px;background:var(--rule);}
+  .toprule .dot{color:var(--rust);font-size:1rem;}
+  article{opacity:0;animation:rise 1s .42s both;}
+  article p{font-size:clamp(1rem,2.4vw,1.1rem);line-height:1.72;margin-bottom:1.3em;text-align:justify;hyphens:auto;}
+  article>p:first-of-type::first-letter{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(4rem,10vw,5.2rem);line-height:.82;float:left;margin:.08em .14em 0 0;color:var(--rust);}
+  .lead-sc{font-variant:small-caps;font-size:1.05em;letter-spacing:.04em;}
+  .poem{margin:1.8rem 0;padding:.8rem 0 .8rem 2rem;border-left:3px solid var(--rust-soft);}
+  .poem p{font-style:italic;font-size:clamp(.97rem,2.3vw,1.07rem);line-height:1.6;margin-bottom:.3em;text-align:left;}
+  .poem p:last-child{margin-bottom:0;}
+  .section-rule{display:flex;align-items:center;gap:.8rem;margin:2rem 0;}
+  .section-rule .line{flex:1;height:1px;background:rgba(42,32,20,.3);}
+  .section-rule .dot{color:var(--rust-soft);font-size:.9rem;}
+  h2.section-head{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(1.3rem,4vw,1.8rem);color:var(--ink);margin-bottom:1rem;letter-spacing:-.01em;}
+  .closer{text-align:center;margin-top:3rem;color:var(--rust);font-size:1.3rem;opacity:0;animation:rise .9s .6s both;}
+  .back-link{display:inline-flex;align-items:center;gap:.4rem;font-family:"Fraunces",serif;font-size:.82rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--rust);text-decoration:none;margin-bottom:2.2rem;opacity:0;animation:rise .8s 0s both;}
+  .back-link::before{content:"←";}
+  .back-link:hover{text-decoration:underline;}
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  @media(max-width:480px){article p{text-align:left;}article>p:first-of-type::first-letter{font-size:3.8rem;}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;}.back-link,.kicker,h1,.byline,.dateline,.toprule,article,.closer{opacity:1!important;}}
+</style>
+</head>
+<body>
+  <main class="sheet">
+    <a class="back-link" href="../index.html">All Columns</a>
+
+    <div class="kicker">Farm Out</div>
+    <h1>Come Boss, Come Boss</h1>
+    <p class="byline">by <span>Melissa Horvath</span> &amp; <span>Doris Lange</span></p>
+    <p class="dateline">May 21, 1974 &mdash; The Freeman&rsquo;s Journal</p>
+
+    <div class="toprule">
+      <span class="line"></span><span class="dot">&#10086;</span><span class="line"></span>
+    </div>
+
+    <article>
+      <p><span class="lead-sc">We had a lesson</span> in patience this week to share with Farm Out readers:</p>
+
+      <div class="poem">
+        <p>For Five Full Minutes &mdash; Filled with Frustration &mdash;</p>
+        <p>I saw only the rear end of that&hellip;soo-o-o-slow &mdash;</p>
+        <p>Gray car; And the back of that old man&rsquo;s head.</p>
+        <p>My head kept saying, &ldquo;Hurry &mdash; come on &mdash; hurry up!&rdquo;</p>
+        <p>And there was no place to pass&hellip;.</p>
+        <p>&nbsp;</p>
+        <p>While all around me the dandelions sparkled</p>
+        <p>In the warm spring sunshine;</p>
+        <p>The varied pastels of the budding trees</p>
+        <p>Glowed against a so-blue sky;</p>
+        <p>And the brilliant green of spring grass surrendered</p>
+        <p>To the rich dark earth beneath the plow&hellip;.</p>
+        <p>&nbsp;</p>
+        <p>I almost forgot to pass my slow-moving friend</p>
+        <p>When I got the chance.</p>
+      </div>
+
+      <div class="section-rule">
+        <span class="line"></span><span class="dot">&#10086;</span><span class="line"></span>
+      </div>
+
+      <h2 class="section-head">Cow-Slips and Broken Fences</h2>
+
+      <p>Every spring, no matter how carefully we have checked the pasture fence, the cows find that one weak place &mdash; or several weak places, one at a time. We don&rsquo;t mind rounding up stray cattle on a bright spring day; there&rsquo;s always something new or pleasant to see and to talk about later. Sometimes we see the beavers at work on a new house, and there are so many kinds of birds! Their songs are music to these farmers&rsquo; ears.</p>
+
+      <p>Our cows break fences, but have you ever seen a cow-slip under a fence? Actually, the cows walk around the wet places where the cow-slips grow, but as long as we&rsquo;re here, we can gather a bouquet and a great bunch of leaves to use as salad or cooked greens tonight. We arrive home with pockets and a &ldquo;jacket-turned-into-a-bag,&rdquo; loaded with cow-slip leaves, cat-tail shoots, and wild onions&hellip;still calling, &ldquo;Come boss, come boss&hellip;&rdquo; It can really be fun &mdash; once or twice. But the third or fourth cattle drive on a cold rainy day is sure to convince someone that it is time to really fix the fence.</p>
+
+      <div class="section-rule">
+        <span class="line"></span><span class="dot">&#10086;</span><span class="line"></span>
+      </div>
+
+      <h2 class="section-head">Get Going &mdash; The Force of Nature Is on Your Side</h2>
+
+      <p>We&rsquo;re under the impression that lots of people are becoming gardeners this year for the first time &mdash; or, if they had always gardened just for fun, this year they are gardening in earnest! If you haven&rsquo;t started yet, <em>GET GOING!</em> Almost any patch of earth can become a garden with a little tender loving care.</p>
+
+      <p>Don&rsquo;t be frightened off by too much advice: &ldquo;Test the soil&rdquo;&hellip;&ldquo;Buy this or that fertilizer&rdquo;&hellip; Some gardening books make the process seem more difficult than the alchemist dream of producing gold from base metals. Our advice: don&rsquo;t take all that advice too seriously. Seeds that are put in the soil can&rsquo;t keep from growing! With just a little common sense and elbow grease, you beginners will have both vegetables and fun. Don&rsquo;t forget, you have a very strong force on your side &mdash; the force of nature! We can practically guarantee that the little garden you thought you&rsquo;d start this spring will look a whole lot larger in the middle of July!</p>
+    </article>
+
+    <div class="closer">&#10086;</div>
+  </main>
+</body>
+</html>

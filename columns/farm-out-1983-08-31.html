@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farm Out — August 31, 1983</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3ead6;
+    --paper-deep:#ece0c6;
+    --ink:#23190f;
+    --ink-soft:#4a3c2a;
+    --rust:#8c3b1b;
+    --rust-soft:#b5683f;
+    --rule:#2a2014;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{ -webkit-font-smoothing:antialiased; }
+
+  body{
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(140,59,27,.07), transparent 60%),
+      radial-gradient(ellipse 120% 80% at 50% 120%, rgba(35,25,15,.10), transparent 55%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"Newsreader", Georgia, serif;
+    font-optical-sizing:auto;
+    line-height:1.62;
+    min-height:100vh;
+    padding:clamp(1.2rem,4vw,4rem) clamp(1rem,4vw,2rem) 5rem;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:50;
+    opacity:.42;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:49;
+    box-shadow:inset 0 0 220px rgba(35,25,15,.18);
+  }
+
+  .sheet{
+    max-width:46rem;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+  }
+
+  .kicker{
+    text-align:center;
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    font-style:italic;
+    letter-spacing:.02em;
+    color:var(--rust);
+    font-size:clamp(1rem,3.4vw,1.35rem);
+    text-transform:uppercase;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+    opacity:0;
+    animation:rise .8s .05s both;
+  }
+  .kicker::before,.kicker::after{
+    content:"";
+    flex:1;
+    max-width:5rem;
+    height:1px;
+    background:var(--rule);
+  }
+
+  h1{
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    font-size:clamp(2.4rem,8vw,4.4rem);
+    line-height:.95;
+    letter-spacing:-.02em;
+    text-align:center;
+    margin:.5rem 0 .6rem;
+    color:var(--ink);
+    opacity:0;
+    animation:rise .9s .15s both;
+  }
+
+  .byline{
+    text-align:center;
+    font-style:italic;
+    font-size:clamp(.95rem,2.4vw,1.08rem);
+    color:var(--ink-soft);
+    margin-bottom:.3rem;
+    opacity:0;
+    animation:rise .9s .25s both;
+  }
+  .byline span{ font-style:normal; font-weight:500; }
+
+  .dateline{
+    text-align:center;
+    font-family:"Fraunces", serif;
+    font-size:.82rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--rust-soft);
+    margin-bottom:2rem;
+    opacity:0;
+    animation:rise .9s .3s both;
+  }
+
+  .toprule{
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+    margin-bottom:2.2rem;
+    opacity:0;
+    animation:rise .9s .35s both;
+  }
+  .toprule .line{ flex:1; height:1px; background:var(--rule); }
+  .toprule .dot{ color:var(--rust); font-size:1rem; }
+
+  article{
+    opacity:0;
+    animation:rise 1s .42s both;
+  }
+
+  article p{
+    font-size:clamp(1rem,2.4vw,1.1rem);
+    line-height:1.72;
+    margin-bottom:1.3em;
+    text-align:justify;
+    hyphens:auto;
+  }
+
+  article > p:first-of-type::first-letter{
+    font-family:"Fraunces", serif;
+    font-weight:900;
+    font-size:clamp(4rem,10vw,5.2rem);
+    line-height:.82;
+    float:left;
+    margin:.08em .14em 0 0;
+    color:var(--rust);
+  }
+
+  .lead-sc{
+    font-variant:small-caps;
+    font-size:1.05em;
+    letter-spacing:.04em;
+  }
+
+  .section-rule{
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+    margin:2rem 0;
+  }
+  .section-rule .line{ flex:1; height:1px; background:rgba(42,32,20,.3); }
+  .section-rule .dot{ color:var(--rust-soft); font-size:.9rem; }
+
+  .closer{
+    text-align:center;
+    margin-top:3rem;
+    color:var(--rust);
+    font-size:1.3rem;
+    opacity:0;
+    animation:rise .9s .6s both;
+  }
+
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    font-family:"Fraunces", serif;
+    font-size:.82rem;
+    font-weight:700;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-decoration:none;
+    margin-bottom:2.2rem;
+    opacity:0;
+    animation:rise .8s 0s both;
+  }
+  .back-link::before{ content:"←"; }
+  .back-link:hover{ text-decoration:underline; }
+
+  @keyframes rise{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  @media (max-width:480px){
+    article p{ text-align:left; }
+    article > p:first-of-type::first-letter{ font-size:3.8rem; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;}
+    .back-link,.kicker,h1,.byline,.dateline,.toprule,article,.closer{opacity:1!important;}
+  }
+</style>
+</head>
+<body>
+  <main class="sheet">
+    <a class="back-link" href="../index.html">All Columns</a>
+
+    <div class="kicker">Farm Out</div>
+    <h1>Mazie Is Culled from the Herd, Goes to &lsquo;Great Pasture in Sky&rsquo;</h1>
+    <p class="byline">by <span>Doris Lange</span> &amp; <span>Melissa Horvath</span></p>
+    <p class="dateline">August 31, 1983 &mdash; The Freeman&rsquo;s Journal</p>
+
+    <div class="toprule">
+      <span class="line"></span><span class="dot">&#10086;</span><span class="line"></span>
+    </div>
+
+    <article>
+      <p><span class="lead-sc">It is not</span> one of the most pleasant aspects of dairy farming, but it is an aspect a dairy farmer must learn to live with.</p>
+
+      <p>We who live with cows know that a cow&rsquo;s lifetime is much shorter than our own. Those dear little calves become mama cows in about two years.</p>
+
+      <p>Some mama cows might live to &ldquo;ripe old ages&rdquo; of 10 to 20 years, but an average cow&rsquo;s life span is more like five to eight years.</p>
+
+      <p>A great many things can limit a cow&rsquo;s productive life. If, for example, she does not breed-back, her milk production will eventually be so low that she can no longer pay for her food.</p>
+
+      <p>Farming is, after all, a business. We can&rsquo;t make decisions about the life and death of an animal on a strictly emotional basis. A cow is an economic unit. No matter how much she is loved, when she can no longer pay her own way in milk, she must become meat.</p>
+
+      <p>Usually a &ldquo;cull cow&rdquo; (an animal that must be withdrawn from the herd) is sent to auction, so we don&rsquo;t have to deal with the actual transition from milk cow to beef cow.</p>
+
+      <p>Occasionally we must. These occasions may be precipitated by either the condition of the cow or by the (empty) condition of our freezer.</p>
+
+      <p>This particular cow was somewhat disabled; a cow must walk out on the auction floor to bring a reasonable price. She would have been worth very little money in her condition, yet she was healthy and her meat would feed us for quite some time.</p>
+
+      <p>By the time an animal has been slaughtered, gutted, skinned, cut up, and frozen, we no longer think of it as an animal. It is not &ldquo;old Maizie,&rdquo; it is steak, roast or stew meat, but some moments during the transition can be disturbing.</p>
+
+      <p>The first actual butchering I performed was, to say the least, a traumatic experience. I had previously only handled meat as purchased when already chilled or as cooked food. A newly butchered animal is neither cold nor cooked.</p>
+
+      <p>I instinctively did the same kind of thing people do in many parts of the world; I silently apologized to the warm, but no longer living cow in a wordless prayer. I felt both sorry she had to die and grateful for the meat she would provide.</p>
+
+      <p>Subsequent butcherings became less and less traumatic, but never easy. If an animal must be killed, it makes no sense that it not serve some final purpose. In this case, sustenance for the people who had done all they could to keep the cow healthy and comfortable.</p>
+
+      <p>Everything that lives must die and the essence of ecology is preservation. I would much prefer that old Maizie be in the barn, living and making milk, but I don&rsquo;t have that option.</p>
+
+      <p>She is in the freezer now. And life goes on.</p>
+
+      <div class="section-rule">
+        <span class="line"></span><span class="dot">&#10086;</span><span class="line"></span>
+      </div>
+
+      <p>Since we moved here 13 years ago, one of the family&rsquo;s greatest pleasures has been watching the wildlife around us.</p>
+
+      <p>The first winter we were here, a pair of skunks visited us nightly. Once we realized they would be regular visitors, we decided to feed them and enjoy the visits.</p>
+
+      <p>After we had set out peanut butter-spread crackers on the front porch, we would retire to the house to watch. The skunks would clumsily climb our porch steps and pick up the crackers with their very delicate and amazingly nimble front paws.</p>
+
+      <p>After carefully licking all the peanut butter off the cracker, the skunk would turn it over and look for more peanut butter on the reverse side. Finally, after all the peanut butter was gone, the skunks would nibble the crackers.</p>
+
+      <p>One summer, we spent many evenings enjoying the sight of a doe and her two fawns that came out of the trees when the shadows grew long to graze in the alfalfa field.</p>
+
+      <p>Another year we carried bread with us each time we went to the creek so we could feed a family of ducks. Mommy and daddy duck would stay cautiously about five feet away, but the babies always waddled about our feet and chattered politely in baby duck language.</p>
+
+      <p>One morning last month, Nora, who is residing in the people chicken coop this year, heard an animal wandering around in her abode.</p>
+
+      <p>Assuming one of our cats had nosed through the loosely latched door, she turned over for a few more drops of sleep, but the animal she caught a glimpse of was not a cat! A fat, fluffy woodchuck was making himself at home in her home.</p>
+
+      <p>He gave Nora a quick, unconcerned look and kept on investigating. Perhaps he hoped to make his home with her, probably he was just curious.</p>
+
+      <p>After inspecting the inside of the coop, he climbed to the window sill and checked out the view. He paused there briefly in the sun, then tumbled down and ambled out the door without so much as a goodbye, a thank you or a backward glance.</p>
+
+      <p>This was not the last we saw of this woodchuck; he did not invade Nora&rsquo;s abode again, but he did appear out in the yard at least once a day. He seemed to like being around people.</p>
+
+      <p>This summer Laura has, as usual, had an entourage of little kids here at the house for whom she babysits.</p>
+
+      <p>They have often sat quietly on the porch delightedly watching this big, fat woodchuck meander around our lawn.</p>
+
+      <p>Once in a while he stopped to munch on something particularly appetizing, but he never invaded or disturbed our garden. Although cautious enough not to get too close, he remained near enough to be part of the group.</p>
+
+      <p>One day Ben, who is two years old, discovered his woodchuck &ldquo;friend&rdquo; dead on our front lawn. He ran to Laura, sat on her lap, held her cheeks in his two hands, and repeated over and over again in a devastated voice, &ldquo;Poor woodchuck. Got hit. Poor woodchuck dead!&rdquo;</p>
+
+      <p>Now, while I realize that the death of a woodchuck is of no consequence to most people, and that many people believe the only good &lsquo;chuck is a dead one, to Ben it was the first time one of his friends had died.</p>
+
+      <p>Ben mourned that fat, fluffy woodchuck, and I think the &lsquo;chuck deserved the mourning because he had given this part of the world so much pleasure.</p>
+    </article>
+
+    <div class="closer">&#10086;</div>
+  </main>
+</body>
+</html>
